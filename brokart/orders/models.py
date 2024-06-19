@@ -24,7 +24,7 @@ class Orders(models.Model):
     created_at=models.DateTimeField(auto_now_add=True)
     deleted_at=models.DateTimeField(auto_now=True)
 
-# Model for ordered item
+# Model for ordered item.
 class Ordered_Item(models.Model):
     product=models.ForeignKey(product,related_name='addaed_carts',on_delete=models.SET_NULL,null=True)
     quantity=models.IntegerField(default=1)
