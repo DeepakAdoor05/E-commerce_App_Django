@@ -411,7 +411,7 @@ th:last-child{
     max-width: 300px;
     padding: 0 20px;
     position: absolute;
-    top: 130px;
+    top: 100px;
     transition: transform 1s;
 }
 form input{
@@ -429,6 +429,13 @@ form .btn{
 }
 form .btn:focus{
     outline: none;
+}
+.message{
+    color: red;
+    text-decoration-line: spelling-error;
+}
+.message-ul{
+    padding: 4px;
 }
 #LoginForm{
     left: -300px;
