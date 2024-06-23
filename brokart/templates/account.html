@@ -24,5 +24,14 @@
     
             }
         </script>
+        {% if register %}
+            <script>
+                register()
+            </script>
+        {% else %}
+            <script>
+                login()
+            </script>
+        {% endif %}
     {% endblock  %}
 {% endblock content %}
