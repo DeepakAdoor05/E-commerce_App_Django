@@ -1,11 +1,18 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate,login
+from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 from .models import Customer
 # Create your views here.
 
+# Function for Signout.
+
+def sign_out(request):
+    logout(request)
+    return redirect('home')
+
 # Function for SignUp and SignIn.
+
 def show_account(request):
     context={}
     if request.POST and 'register' in request.POST:
