@@ -388,7 +388,7 @@ th:last-child{
 .form-container{
     background: #fff;
     width: 300px;
-    height: 400px;
+    height: 420px;
     position: relative;
     text-align: center;
     padding: 20px 0;
@@ -430,12 +430,13 @@ form .btn{
 form .btn:focus{
     outline: none;
 }
-.message{
+.error{
     color: red;
-    text-decoration-line: spelling-error;
+    padding: 12px;
 }
-.message-ul{
-    padding: 4px;
+.success{
+    color: green;
+    padding: 12px;
 }
 #LoginForm{
     left: -300px;

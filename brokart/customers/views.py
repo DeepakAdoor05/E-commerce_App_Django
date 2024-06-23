@@ -25,8 +25,9 @@ def show_account(request):
                 phone=phone,
                 address=address
             )
-            return redirect('home')
+            success_message="User registered successfully"
+            messages.success(request,success_message)
         except Exception as e:
-            error_message="Duplicate username or invalid credentials"
+            error_message="Duplicate username or invalid inputs !!!"
             messages.error(request,error_message)
     return render(request,'account.html')

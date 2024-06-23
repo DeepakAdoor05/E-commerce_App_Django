@@ -10,16 +10,16 @@
                     <div class="form-btn">
                         <span onclick="login()">Login</span>
                         <span onclick="register()">Register</span>
-                        <hr id="Indicator" style="transform: translate(0px);">
+                        <hr id="Indicator">
                     </div>
                     {% if messages %}
                     <div class="message">
                         {% for message in messages %}
-                            <ul class="message-ul">{{message}}</ul>
+                            <li class="{{message.tags}}">{{message}}</li>
                         {% endfor %}
                     </div>
                     {% endif %}
-                    <form id="LoginForm" method="post" enctype="multipart/form-data" style="transform: translateX(300px);">
+                    <form id="LoginForm" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                         <input type="text" required name="username" maxlength="10" minlength="3" placeholder="Username">
                         <input type="password" required name="password" minlength="6" placeholder="Password">
@@ -27,13 +27,13 @@
                         <a href="">Forget Password</a>
                     </form>
 
-                    <form id="RegForm" method="post" enctype="multipart/form-data" style="transform: translateX(300px);">
+                    <form id="RegForm" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                         <input type="text" required name="username" maxlength="10" minlength="3" placeholder="Username">
                         <input type="email" required name="email" placeholder="Email">
                         <input type="password" required name="password" minlength="6" placeholder="Password">
                         <input type="text" required name="address" minlength="5" placeholder="Address">
-                        <input type="tel" required name="phone" minlength="5" placeholder="Phone">
+                        <input type="tel" required name="phone" minlength="10" placeholder="Phone">
                         <button type="submit" name="register" class="btn">Register</button>
                     </form>
                 </div>
