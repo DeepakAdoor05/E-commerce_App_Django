@@ -2,7 +2,7 @@ from django.db import models
 
 # Model for product
 
-class product(models.Model):
+class Product(models.Model):
     LIVE=1
     DELETE=0
     DELETE_CHOICES=((LIVE,'Live'),(DELETE,'Delete'))

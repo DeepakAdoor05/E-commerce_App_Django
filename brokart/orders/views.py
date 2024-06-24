@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from . models import Orders,Ordered_Item
-from products.models import product
+from products.models import Product
 # Create your views here.
 
 def show_cart(request):
@@ -23,10 +23,9 @@ def add_to_cart(request):
             owner=customer,
             order_status=Orders.CART_STAGE
         )
-        print(cart_obj)
-        product_obj=product.objects.get(pk=product_id)
+        product=Product.objects.get(pk=product_id)
         ordered_item=Ordered_Item.objects.create(
-            product=product_obj,
+            product=product,
             owner=cart_obj,
             quantity=quantity
         )
