@@ -24,10 +24,15 @@ def add_to_cart(request):
             order_status=Orders.CART_STAGE
         )
         product=Product.objects.get(pk=product_id)
-        ordered_item=Ordered_Item.objects.create(
+        ordered_item,created=Ordered_Item.objects.get_or_create(
             product=product,
             owner=cart_obj,
-            quantity=quantity
         )
+        if created:
+            ordered_item.quantity=quantity
+            ordered_item.save()
+        else:
+            ordered_item.quantity=ordered_item.quantity + quantity
+            ordered_item.save()
         
     return redirect('cart')
