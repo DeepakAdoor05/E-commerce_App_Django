@@ -1,4 +1,6 @@
 {% load static %}
+{% load multiply %}
+{% load gettotal %}
 <div class="small-container cart-page">
     {% if cart %}
     <table>
@@ -21,29 +23,22 @@
                 </div>
             </td>
             <td><input type="number" disabled value="{{cart_item.quantity}}"></td><!--user can't change quatinty in cart-->
-            <td>${{cart_item.product.price}}</td>
+            <td>${% multiply cart_item.product.price cart_item.quantity %}</td>
         </tr>
         {% endfor %}
     </tbody></table>
     {% endif %}
     <div class="total-price">
         <table>
-            <tbody><tr>
-                <td>Subtotal</td>
-                <td>$200.00</td>
-            </tr>
-            <tr>
-                <td>Tax</td>
-                <td>$35.00</td>
-            </tr>
-            <tr>
-                <td>Total</td>
-                <td>$230.00</td>
-            </tr>
-            <tr>
-                <td colspan="2"></td>
-                <td><button>Confirm</button></td>
-            </tr>
+            <tbody>
+                <tr>
+                    <td>Total</td>
+                    <td>${% gettotal cart %}</td>
+                </tr>
+                <tr>
+                    <td colspan="2"></td>
+                    <td><button>Confirm</button></td>
+                </tr>
         </tbody></table>
     </div>
 </div>
