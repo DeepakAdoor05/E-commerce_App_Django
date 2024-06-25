@@ -36,7 +36,13 @@
                 </tr>
                 <tr>
                     <!--<td colspan="2"></td>-->
-                    <td><button class="btn">PlaceOrder</button></td>
+                    <td>
+                        <form action="{% url 'checkout' %}" method="post" enctype="">
+                            {% csrf_token %}
+                            <input type="hidden" name="total" value="{% gettotal cart %}">
+                            <button type="submit" class="btn">PlaceOrder</button>
+                        </form>
+                    </td>
                 </tr>
         </tbody></table>
     </div>

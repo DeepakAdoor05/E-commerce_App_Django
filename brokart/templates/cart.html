@@ -2,5 +2,13 @@
 
 
 {% block content %}
+{% if messages %}
+    <div class="message">
+        {% for message in messages %}
+            <li class="{{message.tags}}">{{message}}</li>
+        {% endfor %}
+    </div>
+{% else %}
     {% include 'cart_container.html' %}
+{% endif %}
 {% endblock content %}
