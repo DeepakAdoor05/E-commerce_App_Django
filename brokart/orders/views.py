@@ -43,7 +43,6 @@ def checkout_cart(request):
 def show_orders(request):
     user=request.user
     customer=user.customer_profile
-    print(Orders.created_at)
     all_orders=Orders.objects.filter(
         owner=customer,
     ).exclude(order_status=Orders.CART_STAGE)
