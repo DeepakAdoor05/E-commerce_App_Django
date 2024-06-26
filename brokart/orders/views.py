@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib import messages
 from . models import Orders,Ordered_Item
 from products.models import Product
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def show_cart(request):
@@ -38,6 +39,19 @@ def checkout_cart(request):
             messages.error(request,status_message)
     return redirect('cart')
 
+@login_required(login_url='account')
+def show_orders(request):
+    user=request.user
+    customer=user.customer_profile
+    print(Orders.created_at)
+    all_orders=Orders.objects.filter(
+        owner=customer,
+    ).exclude(order_status=Orders.CART_STAGE)
+
+    context={'orders':all_orders}
+    return render(request,'orders.html',context)
+
+@login_required(login_url='account')
 def add_to_cart(request):
     if request.POST:
         user=request.user
@@ -61,6 +75,7 @@ def add_to_cart(request):
             ordered_item.save()
         
     return redirect('cart')
+
 def remove_item_from_cart(request,pk):
     item=Ordered_Item.objects.get(pk=pk)
     if item:

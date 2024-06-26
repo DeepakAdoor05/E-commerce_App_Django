@@ -22,7 +22,7 @@ class Orders(models.Model):
     total_price=models.FloatField(default=0)
     owner=models.ForeignKey(Customer,on_delete=models.SET_NULL,related_name='owner',null=True)
     delete_status=models.IntegerField(choices=DELETE_CHOICES,default=LIVE)
-    created_at=models.DateTimeField(auto_now_add=True)
+    created_at=models.DateTimeField(auto_now=True)
     deleted_at=models.DateTimeField(auto_now=True)
     def __str__(self) -> str:
         return "order-{}-{}".format(self.id,self.owner.user.username)
