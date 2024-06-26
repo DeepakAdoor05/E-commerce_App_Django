@@ -3,15 +3,20 @@
     padding: 0;
     box-sizing: border-box;
 }
+.no_order_cart{
+    text-align: center;
+}
 
 .card {
     margin-bottom: 30px;
     letter-spacing: .5px;
 }
+
 .card .card-body {
     padding: 30px;
     background-color: transparent;
 }
+
 .btn-primary{
     display: inline-block;
     background: #4466f2;
@@ -21,10 +26,10 @@
     border-radius: 30px;
     transition: background 0.5s;
 }
+
 .btn-primary:hover{
     background: #3c405f;
 }
-
 
 body{
     font-family: 'Poppins', sans-serif;
@@ -410,7 +415,7 @@ th:last-child{
 .form-container{
     background: #fff;
     width: 300px;
-    height: 420px;
+    height: 450px;
     position: relative;
     text-align: center;
     padding: 20px 0;
@@ -433,7 +438,7 @@ th:last-child{
     max-width: 300px;
     padding: 0 20px;
     position: absolute;
-    top: 100px;
+    top: 130px;
     transition: transform 1s;
 }
 form input{
