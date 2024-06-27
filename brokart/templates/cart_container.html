@@ -40,7 +40,7 @@
                         <form action="{% url 'checkout' %}" method="post" enctype="">
                             {% csrf_token %}
                             <input type="hidden" name="total" value="{% gettotal cart %}">
-                            <button type="submit" class="btn">PlaceOrder</button>
+                            <button type="submit" class="btn" style="width: 70%;"><h3>Place Order</h3></button>
                         </form>
                     </td>
                 </tr>
